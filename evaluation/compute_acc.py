@@ -37,7 +37,7 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument('--dataset', required=True, type=str, help='dataset name')
     parser.add_argument('--model_path', required=True, type=str, help='model path')
-    parser.add_argument('--method', type=str, default='normal',help='prompt engineering technique')
+    parser.add_argument('--method', type=str, default='raw',help='prompt engineering technique')
     args = parser.parse_args()
 
     main(args)

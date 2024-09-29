@@ -25,10 +25,10 @@ def main(args):
     for data in datasets:
         for query in data["query"]:
             formatted_query = custom_format(query, data["variables"])
-            if args.method == 'normal':
+            if args.method == 'raw':
                 prompt = f"{formatted_query}\n\nProvide the final result like this:\n```llm_result\nxxx\n```\n"
                 max_tokens = 512
-            elif args.method == 'code':
+            elif args.method == 'pot':
                 prompt = f"Write Python code to solve the question below:\n\n[Question] {formatted_query}."
                 max_tokens = 512
             elif args.method == 'cot':
@@ -47,7 +47,7 @@ def main(args):
     for i in range(len(responses)):
         each_result = responses[i].outputs[0].text
         # infer_data[i]["response"] = each_result
-        if args.method == 'cot' or args.method == 'normal':
+        if args.method == 'cot' or args.method == 'raw':
             if each_result.find('```llm_result\n') != -1:
                 each_result = each_result[each_result.find('```llm_result\n') + len('```llm_result\n'):]
                 each_result = each_result[:each_result.find('```')]
@@ -77,7 +77,7 @@ def main(args):
                 each_result = each_result[each_result.find('```llm_result\n') + len('```llm_result\n'):]
                 each_result = each_result[:each_result.find('```')]
             each_result = each_result.strip("\n")
-        elif args.method == 'code':
+        elif args.method == 'pot':
             if "```python" in each_result:
                 each_result = each_result[each_result.find('```python') + len('```python'):]
             else:
@@ -97,7 +97,7 @@ if __name__ == '__main__':
     parser.add_argument('--temperature', default=0.8, type=float, help='inference temperature')
     parser.add_argument('--top_p', default=0.95, type=float, help='inference top_p')
     parser.add_argument('--tensor_parallel_size', default=1, type=int, help='gpu numbers')
-    parser.add_argument('--method', default='normal', type=str, help='prompt engineering technique')
+    parser.add_argument('--method', default='raw', type=str, help='prompt engineering technique')
     args = parser.parse_args()
 
     main(args)

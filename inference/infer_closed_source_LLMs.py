@@ -50,10 +50,10 @@ def main(args):
     for data in tqdm(datasets[data_length : ]):
         for query in data["query"]:
             formatted_query = custom_format(query, data["variables"])
-            if args.method == 'normal':
+            if args.method == 'raw':
                 prompt = f"Solve the question below.\n\n{formatted_query}\n\nProvide the final result like this:\n```llm_result\nxxx\n```\n"
 
-            elif args.method == 'code':
+            elif args.method == 'pot':
                 prompt = f"Write a Python code to solve the question below.\n\n{formatted_query}\n\nJust provide the code, no explainations."
 
             elif args.method == 'cot':
@@ -75,11 +75,11 @@ def main(args):
                     each_result = each_result.content
                 except:
                     each_result = ''
-            if args.method == 'cot' or args.method == 'normal':
+            if args.method == 'cot' or args.method == 'raw':
                 each_result = each_result[each_result.find('```llm_result') + len('```llm_result'):]
                 each_result = each_result[:each_result.find('```')]
                 each_result = each_result.strip("\n")
-            elif args.method == 'code':
+            elif args.method == 'pot':
                 if "```python" in each_result:
                     each_result = each_result[each_result.find('```python') + len('```python'):]
                     each_result = each_result[:each_result.find('```')]
@@ -98,7 +98,7 @@ if __name__ == '__main__':
     parser.add_argument('--top_p', default=0.95, type=float, help='inference top_p')
     parser.add_argument('--model_path', required=True, type=str, help='model path')
     parser.add_argument('--tensor_parallel_size', default=1, type=int, help='gpu numbers')
-    parser.add_argument('--method', default='normal', type=str, help='infer method')
+    parser.add_argument('--method', default='raw', type=str, help='prompt engineering technique')
     args = parser.parse_args()
     while(1):
         try:
