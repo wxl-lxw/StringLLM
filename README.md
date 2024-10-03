@@ -47,7 +47,15 @@ python compute_acc_code.py --dataset dataset_name --model_path your_model_path
 Use the training sets in the `data/train` folder, and then follow the instruction of [Llama-Factory](https://github.com/hiyouga/LLaMA-Factory).
 
 ## Citation
-TODO
+If you find this work useful, please kindly cite
+```
+@article{wang2024stringllm,
+  title={StringLLM: Understanding the string processing capability of large language models},
+  author={Wang, Xilong and Fu, Hao and Wang, Jindong and Gong, Neil Zhenqiang},
+  journal={arXiv preprint arXiv:2410.01208},
+  year={2024}
+}
+```
 
 ## Acknowledgement
 This repo benifits from [Llama-Factory](https://github.com/hiyouga/LLaMA-Factory) and the pre-trained models provided by [Hugging Face](https://huggingface.co).
