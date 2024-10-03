@@ -8,9 +8,7 @@ Let's get started by asking LLMs
 How many 'r's are in the word 'strawberry'?
 ```
 
-How well can LLMs understand strings and characters?
-
-This work presents a comprehensive study of LLMs' string processing capability. To this end, we build a series of datasets, stored in `data` folder. Our evaluations on these dataset indicate that LLMs struggle with accurately processing strings compared to humans. We subsequently propose an effective approach that significantly enhances LLMs' string processing capability via fine-tuning.
+How well can LLMs understand strings and characters? This work presents a comprehensive study of LLMs' string processing capability. To this end, we build a series of datasets, stored in `data` folder. Our evaluations on these dataset indicate that LLMs struggle with accurately processing strings compared to humans. We subsequently propose an effective approach that significantly enhances LLMs' string processing capability via fine-tuning.
 
 Here is a figure to briefly illustrate how StringLLM builds the benchmark datasets.
 ![StringLLM](images/StringLLM.png)
