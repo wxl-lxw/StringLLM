@@ -2,6 +2,12 @@
 [StringLLM: Understanding the String Processing Capability of Large Language Models](https://arxiv.org/abs/2410.01208)
 
 Xilong Wang, Hao Fu, Jindong Wang, Neil Zhenqiang Gong
+## News
+
+[2025/01] 🔥 Our paper is accepted to [ICLR 2025](iclr.cc)!
+
+[2024/10] 📑 Our paper was published on [arxiv](https://arxiv.org/abs/2410.01208).
+
 ## Overview
 Let's get started by asking LLMs
 ```
