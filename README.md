@@ -1,4 +1,4 @@
-# StringLLM
+# [ICLR 2025] StringLLM
 [StringLLM: Understanding the String Processing Capability of Large Language Models](https://arxiv.org/abs/2410.01208)
 
 Xilong Wang, Hao Fu, Jindong Wang, Neil Zhenqiang Gong
